@@ -1,0 +1,23 @@
+.loginContainer {
+  height: 350px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 10%;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgb(160, 160, 160);
+}
+mat-form-field {
+  width: 100%;
+}
+.container {
+  height: 100%;
+}
+
+.logback {
+  height: 100vh;
+  background-size: cover;
+  background-position-x: 50%;
+  background-image: url("https://www.pngkit.com/png/full/202-2028590_pattern-for-italian-restaurant-la-casata-in-prague.png");
+}

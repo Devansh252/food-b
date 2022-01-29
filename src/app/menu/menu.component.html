@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex>
+    <div></div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-sm-12 col-md-6 col-lg-4"
+        style="margin: 20px 0 20px 0"
+        *ngFor="let dish of dishes"
+      >
+        <mat-card
+          class="example-card"
+          style="
+            display: grid;
+            align-content: space-around;
+            flex-direction: column;
+          "
+        >
+          <mat-card-header
+            style="display: flex; justify-content: space-between"
+          >
+            <mat-card-title>{{ dish.name }} </mat-card-title>
+            <h3>Rs - {{ dish.price }}</h3>
+          </mat-card-header>
+          <div>
+            <img src="{{ dish.image }}" class="img" alt="Our Location" />
+          </div>
+          <mat-card-content>
+            <p style="padding: 10px">
+              {{ dish.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions
+            style="display: flex; justify-content: space-evenly; padding: 10px"
+          >
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="!admin"
+              (click)="addtocart(dish)"
+            >
+              +ADD
+            </button>
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="admin"
+              (click)="openPopup(dish)"
+            >
+              <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >edit</mat-icon
+              >
+              Edit
+            </button>
+            <button
+              mat-button
+              *ngIf="!admin"
+              routerLink="/cart"
+              class="checkout"
+            >
+              Checkout
+            </button>
+            <button
+              class="deleteButton"
+              mat-button
+              *ngIf="admin"
+              (click)="deleteItem(dish.id)"
+            >
+              Delete<mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >delete_outline</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Edit  Modal -->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit Menu Item</h2>
+      </div>
+      <div class="modal-body">
+        <form (submit)="onEdit(postForm)" #postForm="ngForm">
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              name="name"
+              required
+              ngModel
+              [ngModel]="dName"
+              minlength="3"
+              placeholder="Name"
+              #name="ngModel"
+            />
+            <mat-error *ngIf="name.invalid">Please enter a name.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              name="price"
+              required
+              ngModel
+              [ngModel]="dPrice"
+              minlength="1"
+              placeholder="Price"
+              #name="ngModel"
+            />
+            <mat-error *ngIf="name.invalid">Please enter a Price.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="url"
+              name="image"
+              required
+              ngModel
+              [ngModel]="dUrl"
+              placeholder="Image URL"
+              #image="ngModel"
+            />
+
+            <mat-error *ngIf="image.invalid">Enter url.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <textarea
+              matInput
+              rows="4"
+              ngModel
+              name="description"
+              required
+              [ngModel]="dDescription"
+              placeholder="Description"
+              #content="ngModel"
+            ></textarea>
+            <mat-error *ngIf="content.invalid">Enter Description.</mat-error>
+          </mat-form-field>
+          <div
+            style="display: flex; justify-content: space-evenly; padding: 20px"
+          >
+            <button
+              mat-raised-button
+              type="submit"
+              style="background-color: #fc8019"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              class="btn deleteButton"
+              (click)="closePopup()"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

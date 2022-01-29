@@ -1,0 +1,58 @@
+<div class="col d-flex justify-content-center logback">
+  <mat-card class="loginContainer">
+    <h1>Sign-up</h1>
+    <form
+      (submit)="onSignup(signupForm)"
+      #signupForm="ngForm"
+      *ngIf="!isLoading"
+    >
+      <mat-form-field>
+        <input
+          matInput
+          name="name"
+          ngModel
+          type="text"
+          placeholder="Username"
+          #userNameInput="ngModel"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          name="email"
+          ngModel
+          type="email"
+          placeholder="E-Mail"
+          #emailInput="ngModel"
+          required
+          email
+        />
+        <mat-error *ngIf="emailInput.invalid"
+          >Please enter a valid email.</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="password"
+          name="password"
+          ngModel
+          matInput
+          placeholder="Password"
+          #passwordInput="ngModel"
+          required
+        />
+        <mat-error *ngIf="formValid">Please enter a valid password.</mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        style="background-color: rgb(255, 157, 29); margin-top: 10px"
+        type="submit"
+      >
+        Signup
+      </button>
+    </form>
+    <br />
+    <a routerLink="/login"> Login</a>
+  </mat-card>
+</div>

@@ -1,0 +1,46 @@
+.example-card {
+  width: 80%;
+  height: 100%;
+}
+.example-card:hover {
+  box-shadow: 3px 7px 11px grey;
+}
+
+mat-card-subtitle {
+  font-size: 10px;
+}
+
+mat-card-title {
+  color: green;
+  font-size: 55px;
+  justify-content: center;
+  display: flex;
+}
+
+.containerImg {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+}
+.img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.deleteButton {
+  color: red;
+  border: 1px solid #f44336;
+  margin-left: 10px;
+}
+mat-form-field,
+textarea {
+  width: 100%;
+}
+.checkout {
+  color: rgb(0, 0, 0);
+  border: 1px solid #0f0f0f;
+  margin-left: 10px;
+}
+.container {
+  padding-top: 35px;
+}

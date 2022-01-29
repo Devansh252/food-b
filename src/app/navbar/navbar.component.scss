@@ -1,0 +1,25 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.navbar {
+  padding: 0px 55px 0 55px;
+  position: fixed;
+  z-index: 1;
+}
+.logout {
+  color: red;
+  border: 1px solid #f44336;
+  margin-left: 10px;
+}
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}

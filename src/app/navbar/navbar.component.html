@@ -1,0 +1,122 @@
+<mat-toolbar class="navbar">
+  <!-- <img style="width: 30px" src="../../assets/images/logo.png" /> -->
+  <h2 style="font-weight: bolder; color: #444444" routerLink="/">Food</h2>
+  <span class="example-spacer"></span>
+
+  <button
+    style="background-color: #fc8019"
+    mat-button
+    *ngIf="!admin"
+    routerLink="/cart"
+  >
+    <div style="font-size: 10px" class="badge bg-danger">
+      {{ totalItem }}
+    </div>
+    Cart
+    <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+      >add_shopping_cart</mat-icon
+    >
+  </button>
+  <button
+    style="background-color: #fc8019"
+    mat-button
+    type="button"
+    *ngIf="admin"
+    (click)="openPopup()"
+  >
+    +Add Item
+  </button>
+  <button mat-button class="logout" (click)="logout()">
+    Logout
+    <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+      >exit_to_app</mat-icon
+    >
+  </button>
+</mat-toolbar>
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Add Menu Item</h2>
+      </div>
+      <div class="modal-body">
+        <form
+          (submit)="onSubmitItem(postForm)"
+          #postForm="ngForm"
+          *ngIf="!isLoading"
+        >
+          <mat-form-field>
+            <input
+              matInput
+              type="text"
+              name="name"
+              required
+              ngModel
+              minlength="3"
+              placeholder="Name"
+              #name="ngModel"
+            />
+            <mat-error *ngIf="name.invalid">Please enter a name.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              name="price"
+              required
+              ngModel
+              minlength="1"
+              placeholder="Price"
+              #name="ngModel"
+            />
+            <mat-error *ngIf="name.invalid">Please enter a Price.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              type="url"
+              name="image"
+              required
+              ngModel
+              placeholder="Image URL"
+              #image="ngModel"
+            />
+
+            <mat-error *ngIf="image.invalid">Enter url.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <textarea
+              matInput
+              rows="4"
+              ngModel
+              name="description"
+              required
+              placeholder="Description"
+              #content="ngModel"
+            ></textarea>
+            <mat-error *ngIf="content.invalid">Enter Description.</mat-error>
+          </mat-form-field>
+          <div
+            style="display: flex; justify-content: space-evenly; padding: 20px"
+          >
+            <button
+              mat-raised-button
+              type="submit"
+              style="background-color: #fc8019"
+            >
+              Submit
+            </button>
+            <button type="button" class="btn logout" (click)="closePopup()">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
