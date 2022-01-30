@@ -43,7 +43,18 @@
                 </button>
               </td>
 
-              <td><button class="btn checkout">Checkout</button></td>
+              <td>
+                <google-pay-button
+                  environment="TEST"
+                  buttonSizeMode="fill"
+                  buttonType="plain"
+                  buttonColor="white"
+                  style="width: 55px"
+                  [paymentRequest]="paymentRequest"
+                  (loadpaymentdata)="onLoadPaymentData($event)"
+                ></google-pay-button>
+              </td>
+
               <td colspan="2"></td>
               <td>
                 <strong>Grand Total : Rs{{ grandTotal }}</strong>

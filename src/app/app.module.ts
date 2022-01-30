@@ -26,6 +26,9 @@ import { ServicesService } from './services.service';
 import { CartComponent } from './cart/cart.component';
 import { MatSelectModule } from '@angular/material/select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { GooglePayButtonModule } from '@google-pay/button-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +57,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     HttpClientModule,
     MatSnackBarModule,
+    GooglePayButtonModule,
   ],
   providers: [AuthGuard, AuthService, ServicesService],
   bootstrap: [AppComponent],
