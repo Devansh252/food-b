@@ -25,6 +25,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ServicesService } from './services.service';
 import { CartComponent } from './cart/cart.component';
 import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { MatSelectModule } from '@angular/material/select';
     CartComponent,
   ],
   imports: [
+    NgbModule,
     MatFormFieldModule,
     MatSelectModule,
     BrowserModule,

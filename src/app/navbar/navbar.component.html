@@ -2,6 +2,18 @@
   <!-- <img style="width: 30px" src="../../assets/images/logo.png" /> -->
   <h2 style="font-weight: bolder; color: #444444" routerLink="/">Food</h2>
   <span class="example-spacer"></span>
+  <div ngbDropdown>
+    <button class="btn" id="drop" ngbDropdownToggle style="margin-right: 20px">
+      Menu
+    </button>
+    <div ngbDropdownMenu="ngbDropdown">
+      <a ngbDropdownItem href="#starter">Starters</a>
+      <a ngbDropdownItem href="#snack">Snacks</a>
+      <a ngbDropdownItem href="#chinese">Chinese</a>
+      <a ngbDropdownItem href="#main">Main Course</a>
+      <a ngbDropdownItem href="#dessert">Desserts</a>
+    </div>
+  </div>
 
   <button
     style="background-color: #fc8019"
