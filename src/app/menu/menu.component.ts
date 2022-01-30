@@ -12,7 +12,11 @@ import { CartService } from '../cart/cart.service';
 })
 export class MenuComponent implements OnInit {
   admin: boolean = false;
-  dishes: any;
+  starters: any;
+  snacks: any;
+  mains: any;
+  chineses: any;
+  desserts: any;
   displayStyle = 'none';
   id: number;
   dName: string;
@@ -30,7 +34,21 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.menuData.getItems().subscribe((data: any) => {
-      this.dishes = data;
+      this.starters = data.filter(function (i: any) {
+        return i.category == 'starter';
+      });
+      this.snacks = data.filter(function (i: any) {
+        return i.category == 'snack';
+      });
+      this.mains = data.filter(function (i: any) {
+        return i.category == 'main';
+      });
+      this.chineses = data.filter(function (i: any) {
+        return i.category == 'chinese';
+      });
+      this.desserts = data.filter(function (i: any) {
+        return i.category == 'dessert';
+      });
     });
 
     if (this.authService.getUser() == '0') this.admin = true;

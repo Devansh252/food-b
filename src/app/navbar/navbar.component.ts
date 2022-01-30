@@ -5,6 +5,7 @@ import { ServicesService } from '../services.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { from } from 'rxjs';
 import { CartService } from '../cart/cart.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-navbar',
@@ -31,10 +32,12 @@ export class NavbarComponent implements OnInit {
     if (form.invalid) {
       return;
     } else {
+      console.log(form.value.category);
       this.item = {
         name: form.value.name,
         image: form.value.image,
         price: form.value.price,
+        category: form.value.category,
         description: form.value.description,
       };
       this.service.postItems(this.item).subscribe((res: any) => {

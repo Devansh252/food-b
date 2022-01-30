@@ -24,7 +24,7 @@ import { AuthService } from './auth.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ServicesService } from './services.service';
 import { CartComponent } from './cart/cart.component';
-
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +37,7 @@ import { CartComponent } from './cart/cart.component';
   ],
   imports: [
     MatFormFieldModule,
+    MatSelectModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

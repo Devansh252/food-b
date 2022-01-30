@@ -77,6 +77,23 @@
             <mat-error *ngIf="name.invalid">Please enter a Price.</mat-error>
           </mat-form-field>
           <mat-form-field>
+            <mat-label>Choose Category</mat-label>
+            <select
+              matNativeControl
+              required
+              matInput
+              name="category"
+              #category="ngModel"
+              ngModel
+            >
+              <option value="starter">Starter</option>
+              <option value="snack">Snack</option>
+              <option value="main">Main Course</option>
+              <option value="chinese">Chinese</option>
+              <option value="dessert">Dessert</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field>
             <input
               matInput
               type="url"

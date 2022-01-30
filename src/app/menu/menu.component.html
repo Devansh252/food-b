@@ -6,12 +6,302 @@
 
   <div class="container">
     <div class="row">
+      <h1>Starters</h1>
       <div
         class="col-sm-12 col-md-6 col-lg-4"
         style="margin: 20px 0 20px 0"
-        *ngFor="let dish of dishes"
+        *ngFor="let dish of starters"
       >
         <mat-card
+          *ngIf="dish.category === 'starter'"
+          class="example-card"
+          style="
+            display: grid;
+            align-content: space-around;
+            flex-direction: column;
+          "
+        >
+          <mat-card-header
+            style="display: flex; justify-content: space-between"
+          >
+            <mat-card-title>{{ dish.name }} </mat-card-title>
+            <h3>Rs - {{ dish.price }}</h3>
+          </mat-card-header>
+          <div>
+            <img src="{{ dish.image }}" class="img" alt="Our Location" />
+          </div>
+          <mat-card-content>
+            <p style="padding: 10px">
+              {{ dish.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions
+            style="display: flex; justify-content: space-evenly; padding: 10px"
+          >
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="!admin"
+              (click)="addtocart(dish)"
+            >
+              +ADD
+            </button>
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="admin"
+              (click)="openPopup(dish)"
+            >
+              <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >edit</mat-icon
+              >
+              Edit
+            </button>
+            <button
+              mat-button
+              *ngIf="!admin"
+              routerLink="/cart"
+              class="checkout"
+            >
+              Checkout
+            </button>
+            <button
+              class="deleteButton"
+              mat-button
+              *ngIf="admin"
+              (click)="deleteItem(dish.id)"
+            >
+              Delete<mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >delete_outline</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <h1>Snacks</h1>
+      <div
+        class="col-sm-12 col-md-6 col-lg-4"
+        style="margin: 20px 0 20px 0"
+        *ngFor="let dish of snacks"
+      >
+        <mat-card
+          *ngIf="dish.category === 'snack'"
+          class="example-card"
+          style="
+            display: grid;
+            align-content: space-around;
+            flex-direction: column;
+          "
+        >
+          <mat-card-header
+            style="display: flex; justify-content: space-between"
+          >
+            <mat-card-title>{{ dish.name }} </mat-card-title>
+            <h3>Rs - {{ dish.price }}</h3>
+          </mat-card-header>
+          <div>
+            <img src="{{ dish.image }}" class="img" alt="Our Location" />
+          </div>
+          <mat-card-content>
+            <p style="padding: 10px">
+              {{ dish.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions
+            style="display: flex; justify-content: space-evenly; padding: 10px"
+          >
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="!admin"
+              (click)="addtocart(dish)"
+            >
+              +ADD
+            </button>
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="admin"
+              (click)="openPopup(dish)"
+            >
+              <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >edit</mat-icon
+              >
+              Edit
+            </button>
+            <button
+              mat-button
+              *ngIf="!admin"
+              routerLink="/cart"
+              class="checkout"
+            >
+              Checkout
+            </button>
+            <button
+              class="deleteButton"
+              mat-button
+              *ngIf="admin"
+              (click)="deleteItem(dish.id)"
+            >
+              Delete<mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >delete_outline</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <h1>Chinese</h1>
+      <div
+        class="col-sm-12 col-md-6 col-lg-4"
+        style="margin: 20px 0 20px 0"
+        *ngFor="let dish of chineses"
+      >
+        <mat-card
+          *ngIf="dish.category === 'chinese'"
+          class="example-card"
+          style="
+            display: grid;
+            align-content: space-around;
+            flex-direction: column;
+          "
+        >
+          <mat-card-header
+            style="display: flex; justify-content: space-between"
+          >
+            <mat-card-title>{{ dish.name }} </mat-card-title>
+            <h3>Rs - {{ dish.price }}</h3>
+          </mat-card-header>
+          <div>
+            <img src="{{ dish.image }}" class="img" alt="Our Location" />
+          </div>
+          <mat-card-content>
+            <p style="padding: 10px">
+              {{ dish.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions
+            style="display: flex; justify-content: space-evenly; padding: 10px"
+          >
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="!admin"
+              (click)="addtocart(dish)"
+            >
+              +ADD
+            </button>
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="admin"
+              (click)="openPopup(dish)"
+            >
+              <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >edit</mat-icon
+              >
+              Edit
+            </button>
+            <button
+              mat-button
+              *ngIf="!admin"
+              routerLink="/cart"
+              class="checkout"
+            >
+              Checkout
+            </button>
+            <button
+              class="deleteButton"
+              mat-button
+              *ngIf="admin"
+              (click)="deleteItem(dish.id)"
+            >
+              Delete<mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >delete_outline</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <h1>Main Course</h1>
+      <div
+        class="col-sm-12 col-md-6 col-lg-4"
+        style="margin: 20px 0 20px 0"
+        *ngFor="let dish of mains"
+      >
+        <mat-card
+          *ngIf="dish.category === 'main'"
+          class="example-card"
+          style="
+            display: grid;
+            align-content: space-around;
+            flex-direction: column;
+          "
+        >
+          <mat-card-header
+            style="display: flex; justify-content: space-between"
+          >
+            <mat-card-title>{{ dish.name }} </mat-card-title>
+            <h3>Rs - {{ dish.price }}</h3>
+          </mat-card-header>
+          <div>
+            <img src="{{ dish.image }}" class="img" alt="Our Location" />
+          </div>
+          <mat-card-content>
+            <p style="padding: 10px">
+              {{ dish.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions
+            style="display: flex; justify-content: space-evenly; padding: 10px"
+          >
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="!admin"
+              (click)="addtocart(dish)"
+            >
+              +ADD
+            </button>
+            <button
+              style="background-color: #fc8019; margin-left: 10px"
+              mat-button
+              *ngIf="admin"
+              (click)="openPopup(dish)"
+            >
+              <mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >edit</mat-icon
+              >
+              Edit
+            </button>
+            <button
+              mat-button
+              *ngIf="!admin"
+              routerLink="/cart"
+              class="checkout"
+            >
+              Checkout
+            </button>
+            <button
+              class="deleteButton"
+              mat-button
+              *ngIf="admin"
+              (click)="deleteItem(dish.id)"
+            >
+              Delete<mat-icon style="font-size: 15px; width: 15px; height: 15px"
+                >delete_outline</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <h1>Desserts</h1>
+      <div
+        class="col-sm-12 col-md-6 col-lg-4"
+        style="margin: 20px 0 20px 0"
+        *ngFor="let dish of desserts"
+      >
+        <mat-card
+          *ngIf="dish.category === 'dessert'"
           class="example-card"
           style="
             display: grid;
