@@ -16,6 +16,6 @@ export class ServicesService {
     return this.http.delete(`http://localhost:5555/menu/${id}`);
   }
   editItems(data: any, id: number) {
-    return this.http.put(`http://localhost:5555/menu/${id}`, data);
+    return this.http.patch(`http://localhost:5555/menu/${id}`, data);
   }
 }

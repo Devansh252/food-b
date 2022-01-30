@@ -18,11 +18,13 @@ export class MenuComponent implements OnInit {
   chineses: any;
   desserts: any;
   displayStyle = 'none';
+  displayDelete = 'none';
   id: number;
   dName: string;
   dUrl: string;
   dDescription: string;
   dPrice: number;
+  dId: number;
 
   constructor(
     public authService: AuthService,
@@ -61,10 +63,18 @@ export class MenuComponent implements OnInit {
     this.breakpoint = event.target.innerWidth <= 400 ? 1 : 3;
   }
 
-  deleteItem(i: number) {
-    this.menuData.deleteItems(i).subscribe((data: any) => {
-      console.log(data);
+  deleteItem() {
+    this.menuData.deleteItems(this.dId).subscribe((data: any) => {
+      window.location.reload();
     });
+  }
+
+  openPopupDelete(j: number) {
+    this.displayDelete = 'block';
+    this.dId = j;
+  }
+  closePopupDelete() {
+    this.displayDelete = 'none';
   }
 
   openPopup(item: any) {

@@ -12,7 +12,7 @@
               <th>Description</th>
               <th>Price</th>
               <th>Quantity</th>
-              <th>Total</th>
+              <th>Category</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@
               <td style="width: 25%">{{ item.description }}</td>
               <th style="width: 12%">{{ item.price }}</th>
               <td style="width: 12%">{{ 1 }}</td>
-              <td style="width: 12%">{{ item.price }}</td>
+              <td style="width: 12%">{{ item.category }}</td>
               <td>
                 <button (click)="removeItem(item)" class="btn btn-danger">
                   <mat-icon style="font-size: 15px; width: 15px; height: 15px"
@@ -44,6 +44,7 @@
               </td>
 
               <td><button class="btn checkout">Checkout</button></td>
+              <td colspan="2"></td>
               <td>
                 <strong>Grand Total : Rs{{ grandTotal }}</strong>
               </td>
