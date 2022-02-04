@@ -11,6 +11,7 @@ import { CartService } from '../cart/cart.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  images = [944, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   admin: boolean = false;
   starters: any;
   snacks: any;

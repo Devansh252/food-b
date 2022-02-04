@@ -1,7 +1,58 @@
 <app-navbar></app-navbar>
 <div class="container" fxLayout="column" fxLayoutGap="10px">
   <div fxFlex>
-    <div></div>
+    <div>
+      <ngb-carousel style="margin-top: 30px; border-radius: 10px">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper" style="border-radius: 20px">
+            <img
+              class="img1"
+              src="https://www.lironboylston.com/wp-content/uploads/2020/12/WBC_7095.jpg"
+              alt="Random first slide"
+            />
+          </div>
+          <div class="carousel-caption">
+            <h3>Life's too short for boring food.</h3>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img
+              class="img1"
+              src="https://www.yourphnompenh.com/order/wp-content/uploads/2020/12/Cover_idly_dosa_indai_restuarnt_in_yourphnompenh_online_ordering.jpg"
+              alt="Random second slide"
+            />
+          </div>
+          <div class="carousel-caption">
+            <h3>Just like grandma used to make.</h3>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img
+              class="img1"
+              src="https://images.squarespace-cdn.com/content/v1/55ce1e48e4b06614877a8bfb/1560019409464-HQXHOTA9UB2TA9328U0C/Sherkaan_Indian_New_Haven.jpg"
+              alt="Random third slide"
+            />
+          </div>
+          <div class="carousel-caption">
+            <h3>Life's too short for boring food.</h3>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img
+              class="img1"
+              src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_05/2736521/190131-stock-taco-bar-food-ew-1220p.jpg"
+              alt="Random fourth slide"
+            />
+          </div>
+          <div class="carousel-caption">
+            <h3>Every day is a good day for your restaurant.</h3>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
   </div>
 
   <div class="container">
