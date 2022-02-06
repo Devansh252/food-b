@@ -7,15 +7,15 @@ import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 export class ServicesService {
   constructor(private http: HttpClient) {}
   getItems() {
-    return this.http.get('http://localhost:5555/menu');
+    return this.http.get('http://localhost:3000/menu');
   }
   postItems(data: any) {
-    return this.http.post('http://localhost:5555/menu', data);
+    return this.http.post('http://localhost:3000/menu', data);
   }
-  deleteItems(id: number) {
-    return this.http.delete(`http://localhost:5555/menu/${id}`);
+  deleteItems(id: string) {
+    return this.http.delete(`http://localhost:3000/menu/${id}`);
   }
-  editItems(data: any, id: number) {
-    return this.http.patch(`http://localhost:5555/menu/${id}`, data);
+  editItems(data: any, id: string) {
+    return this.http.patch(`http://localhost:3000/menu/${id}`, data);
   }
 }

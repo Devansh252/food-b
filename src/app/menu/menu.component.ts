@@ -11,7 +11,6 @@ import { CartService } from '../cart/cart.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-  images = [944, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   admin: boolean = false;
   starters: any;
   snacks: any;
@@ -20,12 +19,12 @@ export class MenuComponent implements OnInit {
   desserts: any;
   displayStyle = 'none';
   displayDelete = 'none';
-  id: number;
+  id: string;
   dName: string;
   dUrl: string;
   dDescription: string;
   dPrice: number;
-  dId: number;
+  dId: string;
 
   constructor(
     public authService: AuthService,
@@ -36,20 +35,20 @@ export class MenuComponent implements OnInit {
   breakpoint: number;
 
   ngOnInit() {
-    this.menuData.getItems().subscribe((data: any) => {
-      this.starters = data.filter(function (i: any) {
+    this.menuData.getItems().subscribe(({ menus }: any) => {
+      this.starters = menus.filter(function (i: any) {
         return i.category == 'starter';
       });
-      this.snacks = data.filter(function (i: any) {
+      this.snacks = menus.filter(function (i: any) {
         return i.category == 'snack';
       });
-      this.mains = data.filter(function (i: any) {
+      this.mains = menus.filter(function (i: any) {
         return i.category == 'main';
       });
-      this.chineses = data.filter(function (i: any) {
+      this.chineses = menus.filter(function (i: any) {
         return i.category == 'chinese';
       });
-      this.desserts = data.filter(function (i: any) {
+      this.desserts = menus.filter(function (i: any) {
         return i.category == 'dessert';
       });
     });
@@ -70,7 +69,7 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  openPopupDelete(j: number) {
+  openPopupDelete(j: string) {
     this.displayDelete = 'block';
     this.dId = j;
   }
@@ -79,7 +78,7 @@ export class MenuComponent implements OnInit {
   }
 
   openPopup(item: any) {
-    this.id = item.id;
+    this.id = item._id;
     this.displayStyle = 'block';
     console.log(item);
     this.dPrice = item.price;

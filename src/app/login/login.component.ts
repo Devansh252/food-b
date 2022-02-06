@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) {}
   isLoading = false;
   formValid = false;
+  result: any;
   public showPassword: boolean = false;
   ngOnInit(): void {}
   public togglePasswordVisibility(): void {
@@ -18,22 +19,20 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: NgForm) {
-    if (
-      form.value.email == 'devansh@admin.in' &&
-      form.value.password == 'qwerty'
-    ) {
-      this.authService.createUser(0);
-      this.router.navigate(['/']);
-      console.log(form.value);
+    if (form.value.email == 'devansh@admin.in') {
+      localStorage.setItem('userId', '0');
     }
-    if (
-      form.value.email == 'devansh@gmail.com' &&
-      form.value.password == 'qwerty'
-    ) {
-      this.authService.createUser(1);
-      this.router.navigate(['/']);
-      console.log(form.value);
-    }
-    if (form.value.email) this.formValid = true;
+
+    this.authService.loginUser(form.value).subscribe(
+      (data: any) => {
+        this.result = data;
+        localStorage.setItem('accessToken', data.token);
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        console.log(error);
+        this.formValid = true;
+      }
+    );
   }
 }
