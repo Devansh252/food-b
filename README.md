@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 
 ## Backend server
-
+In the Backend folder in the root directory
 Run `npm install` and then `npm start` for a backend server. Navigate to `http://localhost:3000/`. 
 
 
